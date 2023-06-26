@@ -1,0 +1,40 @@
+package vn.edu.clevai.bplog.common.enumtype;
+
+public enum LCETCodeEnum {
+	JOIN_SUCCESSFUL("DR-JN-JSU"),
+	SUBMIT_REPORT_1A("DR-ST-S1A"),
+	SUBMIT_REPORT_1B("DR-PF-S1B"),
+	SUBMIT_REPORT_2("AF-FN-SR2"),
+	SUBMIT_REPORT_3("AF-FN-SR3"),
+	JOIN_SUBSTANTIAL("AF-FN-JST"),
+	RECEIVE_SPEAK_OUT("AF-FN-RSO"),
+	RECEIVE_COMMENT("AF-FN-RCM"),
+	TIME_UP("DR-PF-TMU"),
+	AUDIT_VIDEO("AF-FL-ADV"),
+	ASSIGN_VIDEO("AF-FN-AGV"),
+
+	SELF_REGISTER("BF-PL-RE"),
+
+	CANCEL_SELF_REGISTER("CSR"),
+
+	WAIT_CONFIRM_REGISTER("WCR"),
+	CONFIRM_REGISTER("BF-NT-RC"),
+	NOT_CONFIRM_REGISTER("NCR"),
+
+	ASSIGN_REGISTER_TE("DR-JN-JRQ"),
+
+	ASSIGN_EM("DR-JN-JRQ"),
+	ASSIGN_CAE_TE("BF-RD-AM"),
+	PL_SC("PL-SC");
+
+	private final String code;
+
+	LCETCodeEnum(String code) {
+		this.code = code;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+}

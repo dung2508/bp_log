@@ -1,0 +1,3290 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="w (generated)" id="1686647257742-1">
+        <createTable tableName="bp_abli_assignbookloitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mycurrscene" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myqtype" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myqpieces" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-2">
+        <createTable tableName="bp_acc_account">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myusi" type="VARCHAR(255)"/>
+            <column name="accounttype1" type="VARCHAR(64)"/>
+            <column name="accounttype2" type="VARCHAR(64)"/>
+            <column name="owner" type="VARCHAR(32)"/>
+            <column name="currency" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-3">
+        <createTable tableName="bp_accyear">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startdate" type="date"/>
+            <column name="enddate" type="date"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-4">
+        <createTable tableName="bp_bcam_businesscampaign">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-5">
+        <createTable tableName="bp_bl_bill">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mydeal" type="VARCHAR(255)"/>
+            <column name="myopp" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-6">
+        <createTable tableName="bp_bpc_commitpoint">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="commit_date" type="datetime"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-7">
+        <createTable tableName="bp_bpe_event">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="bpetype" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-8">
+        <createTable tableName="bp_bpp_process">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="myparent" type="VARCHAR(128)"/>
+            <column name="bpptype" type="VARCHAR(128)"/>
+            <column name="mypod" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-9">
+        <createTable tableName="bp_bps_step">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="mybpp" type="VARCHAR(128)"/>
+            <column name="bpstype" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-10">
+        <createTable tableName="bp_businesscampaign_bp_voucherbatch">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="bpbusinesscampaign_id" type="INT"/>
+            <column name="bpvoucherbatch" type="INT"/>
+            <column name="code" type="VARCHAR(128)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-11">
+        <createTable tableName="bp_cap_calendarperiod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myprd" type="VARCHAR(128)"/>
+            <column name="myparentcap" type="VARCHAR(255)"/>
+            <column name="mygrandparentcap" type="VARCHAR(255)"/>
+            <column name="startperiod" type="datetime"/>
+            <column name="endperiod" type="datetime"/>
+            <column name="captype" remarks="Thuộc 1 trong 5 loại: month, week, shift, session, scene" type="VARCHAR(255)"/>
+            <column name="description" remarks="'system created' = auto generate masterdata by code" type="VARCHAR(2048)"/>
+            <column name="mynoaschild" type="VARCHAR(15)"/>
+            <column name="mynoasgrandchild" type="VARCHAR(15)"/>
+            <column name="mycashsta" type="VARCHAR(255)"/>
+            <column name="mystructure" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mylct" remarks="Chỉ dùng cho Shift" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-12">
+        <createTable tableName="bp_casegroup">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-13">
+        <createTable tableName="bp_casereason">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-14">
+        <createTable tableName="bp_casescript">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-15">
+        <createTable tableName="bp_casetype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-16">
+        <createTable tableName="bp_cashsta_calshiftstart">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mygg" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-17">
+        <createTable tableName="bp_cbod_combood">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mydeal" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-18">
+        <createTable tableName="bp_checkertype">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="created_at" type="VARCHAR(255)"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-19">
+        <createTable tableName="bp_chli_checklistitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(512)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="subcode" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mychsi" remarks="Thuộc Checking step item nào?" type="VARCHAR(128)"/>
+            <column name="myparentchlt" remarks="Là con của CHLT nào" type="VARCHAR(255)"/>
+            <column name="mysubchlt" remarks="Là cha của CHLT nào" type="VARCHAR(255)"/>
+            <column name="myparentchli" type="VARCHAR(512)"/>
+            <column name="do" type="VARCHAR(128)"/>
+            <column name="donot" remarks="Không được làm" type="VARCHAR(255)"/>
+            <column name="correctexample" remarks="Ví dụ đúng" type="VARCHAR(1024)"/>
+            <column name="incorrectexample" remarks="ví dụ sai" type="VARCHAR(1024)"/>
+            <column name="scoretype1" remarks="Scrore type 1/ Score 2  / Both" type="VARCHAR(255)"/>
+            <column name="score1" remarks="Điểm hay đạt loại 1 bao nhiêu?" type="VARCHAR(128)"/>
+            <column name="scoretype2" remarks="Loại điểm chấm (đạt hay điểm)" type="VARCHAR(255)"/>
+            <column name="score2" remarks="Điểm hay đạt loại 2 bao nhiêu?" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-20">
+        <createTable tableName="bp_chlt_checklisttemp">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="subcode" type="VARCHAR(255)"/>
+            <column name="myparentchlt" remarks="Là con của CHLT nào" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="scoretype" type="VARCHAR(255)"/>
+            <column name="score1" type="VARCHAR(128)"/>
+            <column name="scoretype2" type="VARCHAR(255)"/>
+            <column name="score2" type="VARCHAR(128)"/>
+            <column name="do" remarks="Nên làm" type="VARCHAR(30)"/>
+            <column name="donot" remarks="Không được làm" type="VARCHAR(30)"/>
+            <column name="correctexample" remarks="Ví dụ đúng" type="VARCHAR(30)"/>
+            <column name="incorrectexample" remarks="ví dụ sai" type="VARCHAR(30)"/>
+            <column name="mychst" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-21">
+        <createTable tableName="bp_chn_channel">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-22">
+        <createTable tableName="bp_chpi_checkprocessitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(512)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(512)"/>
+            <column name="mychpt" remarks="Mã chpt" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mychpttype" type="VARCHAR(128)"/>
+            <column name="mylcet" remarks="Learning component type nào?" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mycuievent" type="VARCHAR(256)"/>
+            <column name="mytrigger" type="VARCHAR(128)"/>
+            <column name="mychecker" type="VARCHAR(128)"/>
+            <column name="mycti1" remarks="Content item nào?" type="VARCHAR(128)"/>
+            <column name="mycti2" remarks="Content item nào?" type="VARCHAR(128)"/>
+            <column name="mycti3" remarks="Content item nào?" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-23">
+        <createTable tableName="bp_chpt_checkprocesstemp">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" remarks="Mã chpt" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mylcp" remarks="LC sẽ kiểm tra" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myparentlcet" type="VARCHAR(128)"/>
+            <column name="mylcet" type="VARCHAR(128)"/>
+            <column name="triggerusertype" type="VARCHAR(128)"/>
+            <column name="supust" type="VARCHAR(128)"/>
+            <column name="timebase" remarks="Loại nào: scheduling hay flexible" type="VARCHAR(128)"/>
+            <column name="timeoffsetunit" remarks="Đơn vị tính thời gian" type="VARCHAR(128)"/>
+            <column name="timeoffsetvalue" type="INT"/>
+            <column name="timeoffsetminutes" type="INT"/>
+            <column name="note" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-24">
+        <createTable tableName="bp_chri_checkeritem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mychrt" type="VARCHAR(128)"/>
+            <column name="myusi" type="VARCHAR(128)"/>
+            <column name="mycap" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-25">
+        <createTable tableName="bp_chrt_checkertype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-26">
+        <createTable tableName="bp_chsi_checkstepitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" remarks="Mã bước" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="checksample" remarks="CheckSample (100%, 30%, 10%,3%,1%)" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mychpi" remarks="Thuộc Checking process item nào?" type="VARCHAR(128)"/>
+            <column name="mychri" remarks="Checker item nào?" type="VARCHAR(128)"/>
+            <column name="mychst" remarks="Thuộc Checking step template nào?" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-27">
+        <createTable tableName="bp_chst_checksteptemp">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" remarks="Mã bước" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mychpt" remarks="thuộc chpt nào" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mychlt" type="VARCHAR(128)"/>
+            <column name="checksample" remarks="CheckSample (100%, 30%, 10%,3%,1%)" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mychrt" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-28">
+        <createTable tableName="bp_cib_cusinfoblock">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myopp" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="mygg" remarks="Khối nào" type="VARCHAR(255)"/>
+            <column name="mydfdl" remarks="Trình độ nào" type="VARCHAR(255)"/>
+            <column name="mywso" remarks="Lịch học" type="VARCHAR(255)"/>
+            <column name="timeschedule" remarks="Giờ học" type="VARCHAR(128)"/>
+            <column name="learningphone" remarks="Số điện thoại liên hệ học tập" type="VARCHAR(16)"/>
+            <column name="tuitionphone" remarks="Số điện thoại liên hệ học phí" type="VARCHAR(16)"/>
+            <column name="studentphone" remarks="Số điện thoại của học sinh" type="VARCHAR(16)"/>
+            <column name="salephone" remarks="Số điện thoại của TVTS" type="VARCHAR(16)"/>
+            <column name="csagentphone" remarks="Số điện thoại người chăm sóc dịch vụ" type="VARCHAR(16)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-29">
+        <createTable tableName="bp_cib_pod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" remarks="mypod-mydfdl-wso" type="VARCHAR(128)"/>
+            <column name="mywso" type="VARCHAR(128)"/>
+            <column name="mydfdl" type="VARCHAR(128)"/>
+            <column name="mypod" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-30">
+        <createTable tableName="bp_clag_classgroup">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" remarks="Mã lớp" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mypt" remarks="Loại sản phẩm nào" type="VARCHAR(128)"/>
+            <column name="mygg" remarks="Khối nào?" type="VARCHAR(128)"/>
+            <column name="mydfdl" remarks="Trình độ nào?" type="VARCHAR(128)"/>
+            <column name="mywso" remarks="Lịch học nào" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mydfge" remarks="Lớp GET trình độ nào" type="VARCHAR(128)"/>
+            <column name="clagtype" remarks="perm/dyn" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" remarks="1 là active / 0 là inactive" type="BINARY(1)"/>
+            <column defaultValueNumeric="30" name="maxtotalstudents" type="INT"/>
+            <column name="xclass" type="VARCHAR(128)"/>
+            <column name="xsessiongroup" type="VARCHAR(128)"/>
+            <column name="xcash" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-31">
+        <createTable tableName="bp_clag_ulc">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(512)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myclag" type="VARCHAR(128)"/>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="publishbps" type="VARCHAR(128)"/>
+            <column name="unpublishbps" type="VARCHAR(128)"/>
+            <column name="myulc" type="VARCHAR(128)"/>
+            <column name="xdscclasslearningobject" type="VARCHAR(128)"/>
+            <column name="xsessiongroupstudent" type="VARCHAR(128)"/>
+            <column name="xdscclassesmapping" type="VARCHAR(128)"/>
+            <column name="xdscsessiongroup" type="VARCHAR(128)"/>
+            <column name="xsessiongroup" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-32">
+        <createTable tableName="bp_clagt_classgrouptype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(64)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-33">
+        <createTable tableName="bp_confirmation">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="myparentbpstep" type="VARCHAR(64)"/>
+            <column name="confirmed_on" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(64)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-34">
+        <createTable tableName="bp_crpp_curriculumprogrampackage">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="myaccyear" remarks="Năm học nào (22-23 / 23-24)" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myterm" remarks="Học kỳ nào (Main/ Summer)" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mypt" remarks="Môn nào (Math / Testprep)" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startdate" type="datetime"/>
+            <column name="enddate" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="filelocationurl" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-35">
+        <createTable tableName="bp_crps_curriculumprogramsheet">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mycrpp" remarks="CRPS trong CRPP nào" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mygg" remarks="CRPS khối lớp nào" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filelocationurl" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-36">
+        <createTable tableName="bp_cti_contentitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="myparentcti" type="VARCHAR(128)"/>
+            <column name="myctt" type="VARCHAR(255)"/>
+            <column name="myvalueset" type="TEXT"/>
+            <column name="givenon" remarks="Ngày nào trong tuần" type="INT"/>
+            <column name="duration" remarks="Thời lượng tính theo phút" type="INT"/>
+            <column name="qpiecenum" remarks="Số câu hỏi" type="INT"/>
+            <column name="mylo" type="VARCHAR(255)"/>
+            <column name="mybl5qp" type="VARCHAR(255)"/>
+            <column name="zoomid" type="VARCHAR(256)"/>
+            <column name="starturl" type="VARCHAR(256)"/>
+            <column name="joinurl" type="VARCHAR(256)"/>
+            <column name="secretkey" type="VARCHAR(256)"/>
+            <column name="filebeginurl" type="VARCHAR(2048)"/>
+            <column name="filelocationurl" type="VARCHAR(2048)"/>
+            <column name="gdockey" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-37">
+        <createTable tableName="bp_ctt_contenttype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)"/>
+            <column name="mycttparent" type="VARCHAR(128)"/>
+            <column name="contenttypename" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-38">
+        <createTable tableName="bp_cui_content_user_ulc_instance">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(256)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="myulc" type="VARCHAR(128)"/>
+            <column name="myusi" type="VARCHAR(64)"/>
+            <column name="mycti" type="VARCHAR(64)"/>
+            <column name="mypodp" type="VARCHAR(64)"/>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="publishbps" type="VARCHAR(128)"/>
+            <column name="unpublishbps" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 là không sử dụng / 1 là có sử dụng - default = 1" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="xdsc" type="VARCHAR(128)"/>
+            <column name="xassignbackwardpackages" type="VARCHAR(128)"/>
+            <column name="xdscbattlequizs" type="VARCHAR(128)"/>
+            <column name="xdscclasslearningobjects" type="VARCHAR(128)"/>
+            <column name="xdsclivequizs" type="VARCHAR(128)"/>
+            <column name="xdscslides" type="VARCHAR(128)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-39">
+        <createTable tableName="bp_cuie_cuievent">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(256)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mycui" type="VARCHAR(256)"/>
+            <column name="mylcet_lceventtype" type="VARCHAR(255)"/>
+            <column name="mystep" type="VARCHAR(255)"/>
+            <column name="trigger_at" type="datetime"/>
+            <column name="eventplantime" type="datetime"/>
+            <column name="eventactualtime_fet" type="datetime"/>
+            <column name="eventactualtime_bet" type="datetime"/>
+            <column name="myusi" type="VARCHAR(128)"/>
+            <column name="planbpe" type="VARCHAR(128)"/>
+            <column name="actualbpe" type="VARCHAR(128)"/>
+            <column name="publishbpe" type="VARCHAR(128)"/>
+            <column name="unpublishbpe" type="VARCHAR(128)"/>
+            <column name="value1" type="VARCHAR(128)"/>
+            <column name="value2" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 là không sử dụng / 1 là có sử dụng - default = 1" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-40">
+        <createTable tableName="bp_cup_currperiod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="mycrps" type="VARCHAR(128)"/>
+            <column name="mycap" type="VARCHAR(255)"/>
+            <column name="myprd" type="VARCHAR(128)"/>
+            <column name="mydfdl" type="VARCHAR(128)"/>
+            <column name="mydfge" type="VARCHAR(128)"/>
+            <column name="mylct" type="VARCHAR(128)"/>
+            <column name="myparentcup" type="VARCHAR(128)"/>
+            <column name="mycti" type="VARCHAR(128)"/>
+            <column name="mycuptype" type="VARCHAR(16)"/>
+            <column name="mycupno" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="mynoaschild" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-41">
+        <createTable tableName="bp_cuspaymentevidence">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="student_id" remarks="của học sinh nào" type="INT"/>
+            <column name="bpstep_id" type="INT"/>
+            <column name="payment_evidence_image_url" remarks="URL của ảnh chứng minh ddax thanh toán" type="VARCHAR(2048)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-42">
+        <createTable tableName="bp_dfdl_difficultygrade">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-43">
+        <createTable tableName="bp_dfge_difficultyget">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-44">
+        <createTable tableName="bp_dfqc_difficultyqcollection">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueNumeric="0" name="no" type="INT"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-45">
+        <createTable tableName="bp_dfqr_difficultyqrun">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-46">
+        <createTable tableName="bp_dfqs_difficultyqseries">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-47">
+        <createTable tableName="bp_dl_deal">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myusi" remarks="Ai mua" type="VARCHAR(255)"/>
+            <column name="myopp" remarks="Từ opportunity nào" type="VARCHAR(255)"/>
+            <column name="fromdate" remarks="Từ ngày nào" type="date"/>
+            <column name="todate" remarks="Tới ngày nào" type="date"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-48">
+        <createTable tableName="bp_gg_gradegroup">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="cep100_grade_id" type="VARCHAR(128)"/>
+            <column name="summername" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mycashsta" type="VARCHAR(128)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-49">
+        <createTable tableName="bp_goalmeasurement">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-50">
+        <createTable tableName="bp_goalmeasurementformat">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-51">
+        <createTable tableName="bp_goalmeasurementscale">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-52">
+        <createTable tableName="bp_goalparticipant">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-53">
+        <createTable tableName="bp_goalparticipantevaluator">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-54">
+        <createTable tableName="bp_goalparticipantsrole">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-55">
+        <createTable tableName="bp_goaltype">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-56">
+        <createTable tableName="bp_lcet_learningcomponenteventtype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="myparent" type="VARCHAR(128)"/>
+            <column name="mylceg" type="VARCHAR(128)"/>
+            <column name="level" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-57">
+        <createTable tableName="bp_lcl_learningcomponentlevel">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-58">
+        <createTable tableName="bp_lcp_lcperiod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="lcperiodno" type="VARCHAR(128)"/>
+            <column name="mylct" type="VARCHAR(255)"/>
+            <column name="mylctparent" type="VARCHAR(255)"/>
+            <column name="myprd" type="VARCHAR(128)"/>
+            <column name="cgbr" type="VARCHAR(255)"/>
+            <column name="dfqc" type="VARCHAR(128)"/>
+            <column name="nolcp" type="VARCHAR(64)"/>
+            <column name="clagtype" remarks="Perm, Dyn hay Backup" type="VARCHAR(255)"/>
+            <column name="pt" remarks="All hay Each" type="VARCHAR(255)"/>
+            <column name="gg" remarks="All hay Each" type="VARCHAR(255)"/>
+            <column name="dfdl" remarks="All hay Each" type="VARCHAR(255)"/>
+            <column name="wso" remarks="All hay match" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="scheduling" type="VARCHAR(24)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="switchchildren" type="VARCHAR(255)"/>
+            <column name="mypt" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mystructure" type="VARCHAR(128)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-59">
+        <createTable tableName="bp_lcpj_lcpjoin">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="mylcp" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myjointlcp" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-60">
+        <createTable tableName="bp_lcpm_lcpmerge">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="mylcp" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mylctpk" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="isudlm" remarks="0 - không là UDL Merge, 1 - là UDL Merge" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="isugem" remarks="0 - không là UGE Merge, 1 - là UGE Merge" type="BIT(1)"/>
+            <column defaultValueBoolean="false" name="ismain" remarks="0 - không là ULC Main, 1 - là ULC Main" type="BIT(1)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-61">
+        <createTable tableName="bp_lct_learningcomponenttype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="mylck" type="VARCHAR(128)"/>
+            <column name="mypt" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="mylcl" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="need_schedule" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-62">
+        <createTable tableName="bp_ld_lead">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="myqls" type="VARCHAR(255)"/>
+            <column name="mychn" type="VARCHAR(255)"/>
+            <column name="mypcam" type="VARCHAR(255)"/>
+            <column name="myldp" type="VARCHAR(255)"/>
+            <column name="mybcam" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="address" type="VARCHAR(2048)"/>
+            <column name="mypc" remarks="Quan tâm tới combo sản phẩm nào" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(16)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-63">
+        <createTable tableName="bp_ldp_leadprovider">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-64">
+        <createTable tableName="bp_marketingchannels">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-65">
+        <createTable tableName="bp_marketingvisitpoints">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-66">
+        <createTable tableName="bp_nolcp_numoflcp">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-67">
+        <createTable tableName="bp_opp_opportunity">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="mypc" remarks="Sử dụng combo nào trên báo giá" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="myld" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-68">
+        <createTable tableName="bp_pc_productcombo">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-69">
+        <createTable tableName="bp_pc_productcombo_bp_pi_productitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="mypc" type="VARCHAR(255)"/>
+            <column name="mypi" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="code" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-70">
+        <createTable tableName="bp_pcam_platformcampaign">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-71">
+        <createTable tableName="bp_periodtype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="timeduration" remarks="Thời lượng tính bằng phút, null là flexible" type="INT"/>
+            <column name="scheduling" remarks="Fix hoặc flexible" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-72">
+        <createTable tableName="bp_pi_productitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mypt" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="true" name="available" remarks="0: unavailable, 1: available" type="BIT(1)"/>
+            <column name="nolct" remarks="Số tháng của một product item" type="TINYINT(3)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-73">
+        <createTable tableName="bp_pnt_periodnumbertype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="start" remarks="0 - không dùng cho start, 1 - dùng cho start" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="finish" remarks="0 - không dùng cho finish, 1 - dùng cho finish" type="BIT(1)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-74">
+        <createTable tableName="bp_pod_clag">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mypod" type="VARCHAR(128)"/>
+            <column name="myust" type="VARCHAR(128)"/>
+            <column name="myclag" type="VARCHAR(128)"/>
+            <column name="membertype" remarks="Một trong 2 loại: Permanent, Dynamic" type="VARCHAR(128)"/>
+            <column name="assigned_at" type="datetime"/>
+            <column name="unassigned_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="active" remarks="0 là inactive / 1 là active - default = 1" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="xclassstudents" type="VARCHAR(128)"/>
+            <column name="xsessiongroupstudent" type="VARCHAR(128)"/>
+            <column name="xclasses" type="VARCHAR(128)"/>
+            <column name="xdscsessiongroup" type="VARCHAR(128)"/>
+            <column name="xdscclassesmapping" type="VARCHAR(128)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-75">
+        <createTable tableName="bp_pod_dfdl">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mypod" type="VARCHAR(128)"/>
+            <column name="mydfdl" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-76">
+        <createTable tableName="bp_pod_productofdeal">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="myst" type="VARCHAR(128)"/>
+            <column name="mycbod" remarks="Thuộc combo of deal nào" type="VARCHAR(255)"/>
+            <column name="mypt" remarks="Là learning component type thuộc LCLevel 1 nào?" type="VARCHAR(255)"/>
+            <column name="myprd" type="VARCHAR(128)"/>
+            <column name="xdeal" remarks="deal_id từ CEP100" type="VARCHAR(255)"/>
+            <column name="fromdate" type="date"/>
+            <column name="todate" type="date"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="external_link" type="VARCHAR(512)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-77">
+        <createTable tableName="bp_pod_wso">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mypod" type="VARCHAR(128)"/>
+            <column name="mywso" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-78">
+        <createTable tableName="bp_pode_podcevent">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mystep" type="VARCHAR(128)"/>
+            <column name="mypod" type="VARCHAR(128)"/>
+            <column name="frombpaccount" type="VARCHAR(128)"/>
+            <column name="tobpaccount" type="VARCHAR(128)"/>
+            <column name="amount" type="INT"/>
+            <column name="attribute" type="VARCHAR(128)"/>
+            <column name="effective_date" type="date"/>
+            <column name="active" type="BIT(1)"/>
+            <column name="sdb_type" type="VARCHAR(32)"/>
+            <column name="sdb_id" type="INT"/>
+            <column name="startstate" type="VARCHAR(128)"/>
+            <column name="startstatedate" type="date"/>
+            <column name="trigger_at" type="datetime"/>
+            <column name="eventplantime_fet" type="datetime"/>
+            <column name="eventplantime_bet" type="datetime"/>
+            <column name="eventactualtime_fet" type="datetime"/>
+            <column name="eventactualtime_bet" type="datetime"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mypodeventtype" remarks="Dùng 2 loại SetPODValidAll / SetPODOther" type="VARCHAR(128)"/>
+            <column name="xevent" remarks="id của bảng bp_event tại thời điểm T0" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-79">
+        <createTable tableName="bp_podp_podperiod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mypt" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myparent" type="VARCHAR(255)"/>
+            <column name="myulcparent" type="VARCHAR(255)"/>
+            <column name="myulcchild" type="VARCHAR(255)"/>
+            <column name="mylcp" type="VARCHAR(255)"/>
+            <column name="mycap" type="VARCHAR(255)"/>
+            <column name="mypod" type="VARCHAR(255)"/>
+            <column name="myprd" type="VARCHAR(128)"/>
+            <column name="podptype" remarks="Thuộc 1 trong 5 loại: Month, week, shift, session, scene" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-80">
+        <createTable tableName="bp_prd_periodduration">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="periodunit" type="VARCHAR(128)"/>
+            <column name="periodlength" type="INT"/>
+            <column name="periodnumber" type="INT"/>
+            <column name="scheduling" remarks="Hoặc là Fix hoặc Flexible" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-81">
+        <createTable tableName="bp_productcycle">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-82">
+        <createTable tableName="bp_productlay">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-83">
+        <createTable tableName="bp_ps_productslice">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="mypi" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-84">
+        <createTable tableName="bp_pt_producttype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="myparentpt" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-85">
+        <createTable tableName="bp_qls_qualificationstatus">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-86">
+        <createTable tableName="bp_sagp_rate">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="mypt" type="VARCHAR(32)"/>
+            <column name="mygg" type="VARCHAR(32)"/>
+            <column name="mydfdl" type="VARCHAR(32)"/>
+            <column name="mydfge" type="VARCHAR(128)"/>
+            <column name="mywso" type="VARCHAR(128)"/>
+            <column name="rate" type="DECIMAL(10, 4)"/>
+            <column name="effective_date" type="date"/>
+            <column defaultValueBoolean="false" name="is_deleted" type="BIT(1)"/>
+            <column defaultValueComputed="now()" name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-87">
+        <createTable tableName="bp_sagr_sagrate">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mypt" type="VARCHAR(128)"/>
+            <column name="mygg" type="VARCHAR(128)"/>
+            <column name="mydfdl" type="VARCHAR(128)"/>
+            <column name="mydfge" type="VARCHAR(128)"/>
+            <column name="mywso" type="VARCHAR(128)"/>
+            <column name="rate" type="DECIMAL(10, 4)"/>
+            <column name="effectivedate" type="date"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-88">
+        <createTable tableName="bp_setting">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="entitycode" type="VARCHAR(255)"/>
+            <column name="attributecode" type="VARCHAR(255)"/>
+            <column name="attributevalue" type="VARCHAR(1024)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="description" type="VARCHAR(1024)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-89">
+        <createTable tableName="bp_slaitem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-90">
+        <createTable tableName="bp_slod_sliceod">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="mypod" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-91">
+        <createTable tableName="bp_ssl_sessionslide">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="link" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myparentcurrsession" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-92">
+        <createTable tableName="bp_st_gg">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mygg" type="VARCHAR(128)"/>
+            <column name="myst" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-93">
+        <createTable tableName="bp_state">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="effective_date" type="datetime"/>
+            <column name="bp_commit_point_id" type="INT"/>
+            <column name="bp_event_id" type="INT"/>
+            <column name="commit_date" type="datetime"/>
+            <column name="state" type="VARCHAR(64)"/>
+            <column name="state_group" type="VARCHAR(64)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-94">
+        <createTable tableName="bp_studentlifecycle">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-95">
+        <createTable tableName="bp_task_info">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" remarks="PROCESSING, DONE, ERROR" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="error_msg" type="TEXT"/>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="CURRENT_TIMESTAMP" name="updated_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-96">
+        <createTable tableName="bp_teacherlifecycle">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-97">
+        <createTable tableName="bp_term">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-98">
+        <createTable tableName="bp_touchpoint">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-99">
+        <createTable tableName="bp_touchpointformat">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-100">
+        <createTable tableName="bp_touchpointmethod">
+            <column name="code" type="VARCHAR(32)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column name="parent_code" type="VARCHAR(32)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-101">
+        <createTable tableName="bp_uclj_ulcjoin">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="myulc" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myjointulc" type="VARCHAR(128)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-102">
+        <createTable tableName="bp_ulc_uniquelearningcomponent">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="myjointulc" remarks="Cha của ULC" type="VARCHAR(128)"/>
+            <column name="mylct" remarks="Lượt hiển thị cụ thể của learning component type nào" type="VARCHAR(128)"/>
+            <column name="mygg" remarks="Khối nào" type="VARCHAR(255)"/>
+            <column name="mycap" remarks="Calendar Period nào" type="VARCHAR(255)"/>
+            <column name="mydfdl" remarks="Trình độ nào?" type="VARCHAR(255)"/>
+            <column name="mydfge" remarks="Lớp GET loại nào" type="VARCHAR(255)"/>
+            <column name="mylcp" remarks="LC Period nào?" type="VARCHAR(128)"/>
+            <column name="mydfqc" remarks="( 1 trong 3 giá trị General, Advanced, Revision dùng cho AQR)" type="VARCHAR(128)"/>
+            <column name="myparentulc" remarks="ULC cha nào?" type="VARCHAR(128)"/>
+            <column name="mypt" type="VARCHAR(128)"/>
+            <column name="xdsc" remarks="CEP100 daily schedule class nào?" type="VARCHAR(128)"/>
+            <column name="xassign_forward_packages" type="VARCHAR(128)"/>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="publishbps" type="VARCHAR(128)"/>
+            <column name="unpublishbps" type="VARCHAR(128)"/>
+            <column name="is_mainulc" remarks="0- không phải main UDL, 1- main UDL" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 là không sử dụng / 1 là có sử dụng - default = 1" type="BIT(1)"/>
+            <column name="myuncleulc" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="ulc_no" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-103">
+        <createTable tableName="bp_ulcm_ulcmerge">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mainulc" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="isudlm" remarks="0 - không là UDL Merge, 1 - là UDL Merge" type="BIT(1)"/>
+            <column defaultValueBoolean="true" name="isugem" remarks="0 - không là UGE Merge, 1 - là UGE Merge" type="BIT(1)"/>
+            <column defaultValueBoolean="false" name="ismain" remarks="0 - không là ULC Main, 1 - là ULC Main" type="BIT(1)"/>
+            <column name="description" type="VARCHAR(256)"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-104">
+        <createTable tableName="bp_unit_test_log">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="row_type" type="VARCHAR(255)"/>
+            <column name="func_name" type="VARCHAR(255)"/>
+            <column name="mytimestamp" type="datetime"/>
+            <column name="process_code" type="VARCHAR(128)"/>
+            <column name="process_id" type="VARCHAR(128)"/>
+            <column name="col1" type="VARCHAR(255)"/>
+            <column name="col2" type="VARCHAR(255)"/>
+            <column name="col3" type="VARCHAR(255)"/>
+            <column name="col4" type="VARCHAR(255)"/>
+            <column name="col5" type="VARCHAR(255)"/>
+            <column name="col6" type="VARCHAR(255)"/>
+            <column name="col7" type="VARCHAR(255)"/>
+            <column name="col8" type="VARCHAR(255)"/>
+            <column name="col9" type="VARCHAR(255)"/>
+            <column name="col10" type="VARCHAR(255)"/>
+            <column name="param_group_no" type="VARCHAR(128)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-105">
+        <createTable tableName="bp_usi_useritem">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="username" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" remarks="Mã hoá 1 chiều" type="VARCHAR(255)"/>
+            <column name="password_salt" remarks="Chuỗi kí tự ghép với pass để khi hashing tạo ra password là duy nhất dù user khác nhau dùng chung 1 password" type="VARCHAR(64)"/>
+            <column name="password_reminder_token" remarks="dùng để lưu trữ token dành cho việc khôi phục mật khẩu." type="VARCHAR(255)"/>
+            <column name="password_reminder_expire" remarks="Thời điểm token hết hiệu lực" type="datetime"/>
+            <column name="email_confirmation_token" remarks="Lưu trữ chuỗi activation token khi mới đăng ký" type="VARCHAR(255)"/>
+            <column name="myust" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myparent" remarks="account này có thể là Customer, hoặc Family, hoặc Student" type="VARCHAR(64)"/>
+            <column name="firstname" type="VARCHAR(255)"/>
+            <column name="lastname" type="VARCHAR(255)"/>
+            <column name="fullname" type="VARCHAR(512)"/>
+            <column name="avatar" type="VARCHAR(1024)"/>
+            <column name="birthday" type="date"/>
+            <column name="job" type="VARCHAR(255)"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="district_id" type="INT"/>
+            <column name="phone" type="VARCHAR(16)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="gender" remarks="0-male, 1-female, 2-other" type="TINYINT(3)"/>
+            <column name="identity_number" remarks="Chứng minh nhân dân, căn cước công dân" type="VARCHAR(24)"/>
+            <column name="identity_issue_date" remarks="Ngày cấp CCCD" type="date"/>
+            <column name="identity_issue_place" remarks="Nơi cấp CCCD" type="VARCHAR(255)"/>
+            <column name="personal_tax_number" remarks="Mã số thuế TNCN" type="VARCHAR(32)"/>
+            <column name="notes" remarks="Ghi chú" type="VARCHAR(2048)"/>
+            <column name="accept_term_of_services" remarks="Đã đồng ý với điều khoản hay chưa? 0-chưa, 1- đã đồng ý" type="TINYINT(3)"/>
+            <column name="is_keycloak_account_created" type="BIT(1)"/>
+            <column name="displayname" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="false" name="scheduleOM" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-106">
+        <createTable tableName="bp_usid_usiduty">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="mylcet" type="VARCHAR(128)"/>
+            <column name="myust" type="VARCHAR(128)"/>
+            <column name="mycap" type="VARCHAR(128)"/>
+            <column name="mychrt" type="VARCHAR(128)"/>
+            <column name="myusi" type="VARCHAR(128)"/>
+            <column name="mylcp" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" type="BIT(1)"/>
+            <column name="usidtype" remarks="Hoặc USID-SHS hoặc USID-TED" type="VARCHAR(128)"/>
+            <column name="mycashsta" remarks="Giờ start shift học" type="VARCHAR(128)"/>
+            <column name="mydfge" type="VARCHAR(128)"/>
+            <column name="mydfdl" type="VARCHAR(128)"/>
+            <column name="mywso" type="VARCHAR(128)"/>
+            <column name="mygg" type="VARCHAR(128)"/>
+            <column name="mypt" type="VARCHAR(128)"/>
+            <column name="myterm" type="VARCHAR(128)"/>
+            <column name="myaccyear" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="false" name="isapproved" remarks="0 - chưa duyệt, 1 - đã duyệt" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="mycashstr" type="VARCHAR(32)"/>
+            <column name="mycassstr" type="VARCHAR(32)"/>
+            <column name="submited_at" type="datetime"/>
+            <column name="submited_cancel_at" type="datetime"/>
+            <column name="start_time" type="datetime"/>
+            <column name="end_time" type="datetime"/>
+            <column name="effective_date" type="date"/>
+            <column name="time_session_id" remarks="Use time hash function to extract start, end time" type="VARCHAR(128)"/>
+            <column name="approved_at" type="datetime"/>
+            <column name="approved_cancel_at" type="datetime"/>
+            <column name="approved_myusi" type="VARCHAR(128)"/>
+            <column name="published_at" type="datetime"/>
+            <column name="cancel_myusi" type="VARCHAR(128)"/>
+            <column name="reason" type="VARCHAR(512)"/>
+            <column name="allocated_at" type="datetime"/>
+            <column name="unallocated_at" type="datetime"/>
+            <column name="allocated_myusi" type="VARCHAR(128)"/>
+            <column name="unallocated_myusi" type="VARCHAR(128)"/>
+            <column name="position" type="VARCHAR(32)"/>
+            <column name="mypreviouscode" type="VARCHAR(128)"/>
+            <column name="is_deleted" type="BIT(1)"/>
+            <column name="mybpp" type="VARCHAR(128)"/>
+            <column name="mybpe" type="VARCHAR(128)"/>
+            <column name="mybps" type="VARCHAR(128)"/>
+            <column name="publishbpe" type="VARCHAR(128)"/>
+            <column name="unpublishbpe" type="VARCHAR(128)"/>
+            <column name="publishbps" type="VARCHAR(128)"/>
+            <column name="unpublishbps" type="VARCHAR(128)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-107">
+        <createTable tableName="bp_usl_userlevel">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-108">
+        <createTable tableName="bp_ust_usertype">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="myusl" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="myparentust" type="VARCHAR(64)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-109">
+        <createTable tableName="bp_vatinvoice">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(128)">
+                <constraints unique="true"/>
+            </column>
+            <column name="issue_date" type="date"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-110">
+        <createTable tableName="bp_video_dilive_config">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="mypt" type="VARCHAR(128)"/>
+            <column name="mygg" type="VARCHAR(255)"/>
+            <column name="mydfdl" type="VARCHAR(255)"/>
+            <column name="start_url" type="VARCHAR(255)"/>
+            <column name="secret_key" type="VARCHAR(255)"/>
+            <column name="join_url" type="VARCHAR(255)"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-111">
+        <createTable tableName="bp_voucher">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="bpvoucherbatch_id" type="INT"/>
+            <column name="bpstep_id" type="INT"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-112">
+        <createTable tableName="bp_voucherbatch">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="bpbusinesscampaign_id" type="INT"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-113">
+        <createTable tableName="bp_wso_weeklyscheduleoption">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="monday" type="TINYINT(3)"/>
+            <column name="tuesday" type="TINYINT(3)"/>
+            <column name="wednesday" type="TINYINT(3)"/>
+            <column name="thursday" type="TINYINT(3)"/>
+            <column name="friday" type="TINYINT(3)"/>
+            <column name="saturday" type="TINYINT(3)"/>
+            <column name="sunday" type="TINYINT(3)"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="published" remarks="0 - không sử dụng, 1 - sử dụng" type="BIT(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-114">
+        <createTable tableName="usi_zoom_meeting">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="code" type="VARCHAR(512)">
+                <constraints unique="true"/>
+            </column>
+            <column name="zoom_meeting_code" type="VARCHAR(128)"/>
+            <column name="ulc_code" type="VARCHAR(128)"/>
+            <column name="usi" type="VARCHAR(128)"/>
+            <column name="position" type="VARCHAR(128)"/>
+            <column defaultValueBoolean="true" name="published" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-115">
+        <createTable tableName="zoom_meeting">
+            <column name="uuid" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="host_id" type="VARCHAR(255)"/>
+            <column name="host_email" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="topic" type="VARCHAR(1023)"/>
+            <column name="type" type="INT"/>
+            <column name="status" type="VARCHAR(31)"/>
+            <column name="start_time" type="datetime"/>
+            <column name="duration" type="BIGINT"/>
+            <column name="assistant_id" type="BIGINT"/>
+            <column name="timezone" type="VARCHAR(255)"/>
+            <column name="zoom_created_at" type="timestamp"/>
+            <column name="start_url" type="VARCHAR(1023)"/>
+            <column name="join_url" type="VARCHAR(1023)"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="h323_password" type="VARCHAR(255)"/>
+            <column name="pstn_password" type="VARCHAR(255)"/>
+            <column name="encrypted_password" type="VARCHAR(255)"/>
+            <column name="agenda" type="VARCHAR(1023)"/>
+            <column name="pre_schedule" type="BIT(1)"/>
+            <column name="host_video" type="BIT(1)"/>
+            <column name="participant_video" type="BIT(1)"/>
+            <column name="join_before_host" type="BIT(1)"/>
+            <column name="jbh_time" type="BIGINT"/>
+            <column name="auto_recording" type="VARCHAR(31)"/>
+            <column name="alternative_hosts" type="VARCHAR(1023)"/>
+            <column name="show_share_button" type="BIT(1)"/>
+            <column name="request_permission_to_unmute_participants" type="BIT(1)"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+            <column name="audio" type="VARCHAR(31)"/>
+            <column name="published" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-116">
+        <addUniqueConstraint columnNames="entitycode, attributecode" constraintName="bp_setting_uniq" tableName="bp_setting"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-117">
+        <addUniqueConstraint columnNames="mylcp, mylctpk" constraintName="unq_lcpm" tableName="bp_lcpm_lcpmerge"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-118">
+        <createIndex indexName="bp_cuie_cuievent_myusi_eventplantime_published_index" tableName="bp_cuie_cuievent">
+            <column name="myusi"/>
+            <column name="eventplantime"/>
+            <column defaultValueBoolean="true" name="published"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-119">
+        <createIndex indexName="code" tableName="bp_checkertype">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-120">
+        <createIndex indexName="code" tableName="bp_clagt_classgrouptype">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-121">
+        <createIndex indexName="code" tableName="bp_pc_productcombo_bp_pi_productitem">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-122">
+        <createIndex indexName="code" tableName="bp_periodtype">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-123">
+        <createIndex indexName="code" tableName="bp_prd_periodduration">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-124">
+        <createIndex indexName="code" tableName="bp_usl_userlevel">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-125">
+        <createIndex indexName="fk_abli_cup_code" tableName="bp_abli_assignbookloitem">
+            <column name="mycurrscene"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-126">
+        <createIndex indexName="fk_acc_usi" tableName="bp_acc_account">
+            <column name="myusi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-127">
+        <createIndex indexName="fk_bill_mydeal" tableName="bp_bl_bill">
+            <column name="mydeal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-128">
+        <createIndex indexName="fk_bill_opportunity" tableName="bp_bl_bill">
+            <column name="myopp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-129">
+        <createIndex indexName="fk_bp_bps_step_bp_bpcuie_cuievent" tableName="bp_cuie_cuievent">
+            <column name="mystep"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-130">
+        <createIndex indexName="fk_bpp_pod" tableName="bp_bpp_process">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-131">
+        <createIndex indexName="fk_cap_cashsta" tableName="bp_cap_calendarperiod">
+            <column name="mycashsta"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-132">
+        <createIndex indexName="fk_cap_prd" tableName="bp_cap_calendarperiod">
+            <column name="myprd"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-133">
+        <createIndex indexName="fk_cbod_mydeal" tableName="bp_cbod_combood">
+            <column name="mydeal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-134">
+        <createIndex indexName="fk_chli_chlt" tableName="bp_chli_checklistitem">
+            <column name="myparentchlt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-135">
+        <createIndex indexName="fk_chli_chlt_child" tableName="bp_chli_checklistitem">
+            <column name="mysubchlt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-136">
+        <createIndex indexName="fk_chli_chsi" tableName="bp_chli_checklistitem">
+            <column name="mychsi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-137">
+        <createIndex indexName="fk_chlt_mychst" tableName="bp_chlt_checklisttemp">
+            <column name="mychst"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-138">
+        <createIndex indexName="fk_chlt_parent" tableName="bp_chlt_checklisttemp">
+            <column name="myparentchlt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-139">
+        <createIndex indexName="fk_chpi_checker" tableName="bp_chpi_checkprocessitem">
+            <column name="mychecker"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-140">
+        <createIndex indexName="fk_chpi_chpt" tableName="bp_chpi_checkprocessitem">
+            <column name="mychpt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-141">
+        <createIndex indexName="fk_chpi_cti1" tableName="bp_chpi_checkprocessitem">
+            <column name="mycti1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-142">
+        <createIndex indexName="fk_chpi_cti2" tableName="bp_chpi_checkprocessitem">
+            <column name="mycti2"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-143">
+        <createIndex indexName="fk_chpi_cti3" tableName="bp_chpi_checkprocessitem">
+            <column name="mycti3"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-144">
+        <createIndex indexName="fk_chpi_cuievent" tableName="bp_chpi_checkprocessitem">
+            <column name="mycuievent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-145">
+        <createIndex indexName="fk_chpi_trigger" tableName="bp_chpi_checkprocessitem">
+            <column name="mytrigger"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-146">
+        <createIndex indexName="fk_chpt_checkerusertype" tableName="bp_chpt_checkprocesstemp">
+            <column name="supust"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-147">
+        <createIndex indexName="fk_chpt_mylcet" tableName="bp_chpt_checkprocesstemp">
+            <column name="mylcet"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-148">
+        <createIndex indexName="fk_chpt_mylcp" tableName="bp_chpt_checkprocesstemp">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-149">
+        <createIndex indexName="fk_chpt_myparentlcet" tableName="bp_chpt_checkprocesstemp">
+            <column name="myparentlcet"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-150">
+        <createIndex indexName="fk_chpt_triggerust" tableName="bp_chpt_checkprocesstemp">
+            <column name="triggerusertype"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-151">
+        <createIndex indexName="fk_chri_chrt" tableName="bp_chri_checkeritem">
+            <column name="mychrt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-152">
+        <createIndex indexName="fk_chsi_chpi" tableName="bp_chsi_checkstepitem">
+            <column name="mychpi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-153">
+        <createIndex indexName="fk_chsi_chri" tableName="bp_chsi_checkstepitem">
+            <column name="mychri"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-154">
+        <createIndex indexName="fk_chsi_chst" tableName="bp_chsi_checkstepitem">
+            <column name="mychst"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-155">
+        <createIndex indexName="fk_chst_chlt" tableName="bp_chst_checksteptemp">
+            <column name="mychlt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-156">
+        <createIndex indexName="fk_chst_chrt" tableName="bp_chst_checksteptemp">
+            <column name="mychrt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-157">
+        <createIndex indexName="fk_chst_mychpt" tableName="bp_chst_checksteptemp">
+            <column name="mychpt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-158">
+        <createIndex indexName="fk_cib_myopp" tableName="bp_cib_cusinfoblock">
+            <column name="myopp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-159">
+        <createIndex indexName="fk_cib_pod_dfdl" tableName="bp_cib_pod">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-160">
+        <createIndex indexName="fk_cib_pod_pod" tableName="bp_cib_pod">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-161">
+        <createIndex indexName="fk_cib_pod_wso" tableName="bp_cib_pod">
+            <column name="mywso"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-162">
+        <createIndex indexName="fk_clag_dfdl" tableName="bp_clag_classgroup">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-163">
+        <createIndex indexName="fk_clag_gg" tableName="bp_clag_classgroup">
+            <column name="mygg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-164">
+        <createIndex indexName="fk_clag_mydfge" tableName="bp_clag_classgroup">
+            <column name="mydfge"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-165">
+        <createIndex indexName="fk_clag_pt" tableName="bp_clag_classgroup">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-166">
+        <createIndex indexName="fk_clag_ulc_clag" tableName="bp_clag_ulc">
+            <column name="myclag"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-167">
+        <createIndex indexName="fk_clag_ulc_ulc" tableName="bp_clag_ulc">
+            <column name="myulc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-168">
+        <createIndex indexName="fk_clag_wso" tableName="bp_clag_classgroup">
+            <column name="mywso"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-169">
+        <createIndex indexName="fk_clagpod_pod" tableName="bp_pod_clag">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-170">
+        <createIndex indexName="fk_clagpod_sg" tableName="bp_pod_clag">
+            <column name="myclag"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-171">
+        <createIndex indexName="fk_clagpod_ust" tableName="bp_pod_clag">
+            <column name="myust"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-172">
+        <createIndex indexName="fk_commitpoint_bpstate_idx" tableName="bp_state">
+            <column name="bp_commit_point_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-173">
+        <createIndex indexName="fk_crpp_mypt" tableName="bp_crpp_curriculumprogrampackage">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-174">
+        <createIndex indexName="fk_crpp_myterm" tableName="bp_crpp_curriculumprogrampackage">
+            <column name="myterm"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-175">
+        <createIndex indexName="fk_crps_myparentgg" tableName="bp_crps_curriculumprogramsheet">
+            <column name="mygg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-176">
+        <createIndex indexName="fk_cui_mycti" tableName="bp_cui_content_user_ulc_instance">
+            <column name="mycti"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-177">
+        <createIndex indexName="fk_cui_myulc" tableName="bp_cui_content_user_ulc_instance">
+            <column name="myulc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-178">
+        <createIndex indexName="fk_cui_myusi" tableName="bp_cui_content_user_ulc_instance">
+            <column name="myusi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-179">
+        <createIndex indexName="fk_cuie_cui" tableName="bp_cuie_cuievent">
+            <column name="mycui"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-180">
+        <createIndex indexName="fk_cuie_lcet" tableName="bp_cuie_cuievent">
+            <column name="mylcet_lceventtype"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-181">
+        <createIndex indexName="fk_cup_cap" tableName="bp_cup_currperiod">
+            <column name="mycap"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-182">
+        <createIndex indexName="fk_cup_crps" tableName="bp_cup_currperiod">
+            <column name="mycrps"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-183">
+        <createIndex indexName="fk_cup_cti1" tableName="bp_cup_currperiod">
+            <column name="mycti"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-184">
+        <createIndex indexName="fk_cup_dfdl" tableName="bp_cup_currperiod">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-185">
+        <createIndex indexName="fk_cup_dfge" tableName="bp_cup_currperiod">
+            <column name="mydfge"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-186">
+        <createIndex indexName="fk_cup_lct" tableName="bp_cup_currperiod">
+            <column name="mylct"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-187">
+        <createIndex indexName="fk_cup_prd" tableName="bp_cup_currperiod">
+            <column name="myprd"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-188">
+        <createIndex indexName="fk_deal_myopportunity" tableName="bp_dl_deal">
+            <column name="myopp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-189">
+        <createIndex indexName="fk_deal_myusi" tableName="bp_dl_deal">
+            <column name="myusi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-190">
+        <createIndex indexName="fk_gg_cashsta" tableName="bp_gg_gradegroup">
+            <column name="mycashsta"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-191">
+        <createIndex indexName="fk_lcet_lceg" tableName="bp_lcet_learningcomponenteventtype">
+            <column name="mylceg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-192">
+        <createIndex indexName="fk_lcet_lcet" tableName="bp_lcet_learningcomponenteventtype">
+            <column name="myparent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-193">
+        <createIndex indexName="fk_lcp_lct" tableName="bp_lcp_lcperiod">
+            <column name="mylct"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-194">
+        <createIndex indexName="fk_lcp_lct_mylctparent" tableName="bp_lcp_lcperiod">
+            <column name="mylctparent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-195">
+        <createIndex indexName="fk_lcp_prd" tableName="bp_lcp_lcperiod">
+            <column name="myprd"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-196">
+        <createIndex indexName="fk_lcp_pt" tableName="bp_lcp_lcperiod">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-197">
+        <createIndex indexName="fk_lcpj_myjointlcp" tableName="bp_lcpj_lcpjoin">
+            <column name="myjointlcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-198">
+        <createIndex indexName="fk_lcpj_mylcp" tableName="bp_lcpj_lcpjoin">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-199">
+        <createIndex indexName="fk_lcpm_mylcp" tableName="bp_lcpm_lcpmerge">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-200">
+        <createIndex indexName="fk_lct_pt" tableName="bp_lct_learningcomponenttype">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-201">
+        <createIndex indexName="fk_ld_mybcam" tableName="bp_ld_lead">
+            <column name="mybcam"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-202">
+        <createIndex indexName="fk_ld_mychn" tableName="bp_ld_lead">
+            <column name="mychn"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-203">
+        <createIndex indexName="fk_ld_myldp" tableName="bp_ld_lead">
+            <column name="myldp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-204">
+        <createIndex indexName="fk_ld_mypcam" tableName="bp_ld_lead">
+            <column name="mypcam"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-205">
+        <createIndex indexName="fk_ld_myqls" tableName="bp_ld_lead">
+            <column name="myqls"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-206">
+        <createIndex indexName="fk_myparentcrpp" tableName="bp_crps_curriculumprogramsheet">
+            <column name="mycrpp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-207">
+        <createIndex indexName="fk_myparentlcl" tableName="bp_lct_learningcomponenttype">
+            <column name="mylcl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-208">
+        <createIndex indexName="fk_mypc" tableName="bp_pc_productcombo_bp_pi_productitem">
+            <column name="mypc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-209">
+        <createIndex indexName="fk_mypi" tableName="bp_pc_productcombo_bp_pi_productitem">
+            <column name="mypi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-210">
+        <createIndex indexName="fk_opp_myld" tableName="bp_opp_opportunity">
+            <column name="myld"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-211">
+        <createIndex indexName="fk_opp_mypc" tableName="bp_opp_opportunity">
+            <column name="mypc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-212">
+        <createIndex indexName="fk_parent_id_idx" tableName="bp_bpp_process">
+            <column name="myparent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-213">
+        <createIndex indexName="fk_pi_myproducttype" tableName="bp_pi_productitem">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-214">
+        <createIndex indexName="fk_pod_cbod" tableName="bp_pod_productofdeal">
+            <column name="mycbod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-215">
+        <createIndex indexName="fk_pod_clag_bps" tableName="bp_pod_clag">
+            <column name="mybps"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-216">
+        <createIndex indexName="fk_pod_dfdl_dfdl" tableName="bp_pod_dfdl">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-217">
+        <createIndex indexName="fk_pod_dfdl_pod" tableName="bp_pod_dfdl">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-218">
+        <createIndex indexName="fk_pod_myusi" tableName="bp_pod_productofdeal">
+            <column name="myst"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-219">
+        <createIndex indexName="fk_pod_pt" tableName="bp_pod_productofdeal">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-220">
+        <createIndex indexName="fk_pod_wso_pod" tableName="bp_pod_wso">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-221">
+        <createIndex indexName="fk_pod_wso_wso" tableName="bp_pod_wso">
+            <column name="mywso"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-222">
+        <createIndex indexName="fk_pode_bps" tableName="bp_pode_podcevent">
+            <column name="mystep"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-223">
+        <createIndex indexName="fk_pode_fromacc" tableName="bp_pode_podcevent">
+            <column name="frombpaccount"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-224">
+        <createIndex indexName="fk_pode_pod" tableName="bp_pode_podcevent">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-225">
+        <createIndex indexName="fk_pode_toacc" tableName="bp_pode_podcevent">
+            <column name="tobpaccount"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-226">
+        <createIndex indexName="fk_podp_cap" tableName="bp_podp_podperiod">
+            <column name="mycap"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-227">
+        <createIndex indexName="fk_podp_lcp" tableName="bp_podp_podperiod">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-228">
+        <createIndex indexName="fk_podp_pod" tableName="bp_podp_podperiod">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-229">
+        <createIndex indexName="fk_podp_pt" tableName="bp_podp_podperiod">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-230">
+        <createIndex indexName="fk_podp_ulcchild" tableName="bp_podp_podperiod">
+            <column name="myulcchild"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-231">
+        <createIndex indexName="fk_podp_ulcparent" tableName="bp_podp_podperiod">
+            <column name="myulcparent"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-232">
+        <createIndex indexName="fk_ps_mypi" tableName="bp_ps_productslice">
+            <column name="mypi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-233">
+        <createIndex indexName="fk_pt_mypt" tableName="bp_pt_producttype">
+            <column name="myparentpt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-234">
+        <createIndex indexName="fk_sagr_mydfdl" tableName="bp_sagr_sagrate">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-235">
+        <createIndex indexName="fk_sagr_mydfge" tableName="bp_sagr_sagrate">
+            <column name="mydfge"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-236">
+        <createIndex indexName="fk_sagr_mygg" tableName="bp_sagr_sagrate">
+            <column name="mygg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-237">
+        <createIndex indexName="fk_sagr_mypt" tableName="bp_sagr_sagrate">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-238">
+        <createIndex indexName="fk_slod_mypod" tableName="bp_slod_sliceod">
+            <column name="mypod"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-239">
+        <createIndex indexName="fk_ssl_myparentcurrsession" tableName="bp_ssl_sessionslide">
+            <column name="myparentcurrsession"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-240">
+        <createIndex indexName="fk_st_gg_gg" tableName="bp_st_gg">
+            <column name="mygg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-241">
+        <createIndex indexName="fk_st_gg_st" tableName="bp_st_gg">
+            <column name="myst"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-242">
+        <createIndex indexName="fk_state_ bpstate_idx" tableName="bp_state">
+            <column name="bp_event_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-243">
+        <createIndex indexName="fk_step_process_idx" tableName="bp_bps_step">
+            <column name="mybpp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-244">
+        <createIndex indexName="fk_ulc_cap" tableName="bp_ulc_uniquelearningcomponent">
+            <column name="mycap"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-245">
+        <createIndex indexName="fk_ulc_lcperiod" tableName="bp_ulc_uniquelearningcomponent">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-246">
+        <createIndex indexName="fk_ulc_lct" tableName="bp_ulc_uniquelearningcomponent">
+            <column name="mylct"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-247">
+        <createIndex indexName="fk_ulc_myparent" tableName="bp_ulc_uniquelearningcomponent">
+            <column name="myparentulc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-248">
+        <createIndex indexName="fk_ulcj_myjointulc" tableName="bp_uclj_ulcjoin">
+            <column name="myjointulc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-249">
+        <createIndex indexName="fk_ulcj_myulc" tableName="bp_uclj_ulcjoin">
+            <column name="myulc"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-250">
+        <createIndex indexName="fk_usi_myparentust" tableName="bp_usi_useritem">
+            <column name="myust"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-251">
+        <createIndex indexName="fk_usid_acyear" tableName="bp_usid_usiduty">
+            <column name="myaccyear"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-252">
+        <createIndex indexName="fk_usid_bpe" tableName="bp_usid_usiduty">
+            <column name="mybpe"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-253">
+        <createIndex indexName="fk_usid_bps" tableName="bp_usid_usiduty">
+            <column name="mybps"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-254">
+        <createIndex indexName="fk_usid_cap" tableName="bp_usid_usiduty">
+            <column name="mycap"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-255">
+        <createIndex indexName="fk_usid_cashsta" tableName="bp_usid_usiduty">
+            <column name="mycashsta"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-256">
+        <createIndex indexName="fk_usid_chrt" tableName="bp_usid_usiduty">
+            <column name="mychrt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-257">
+        <createIndex indexName="fk_usid_dfdl" tableName="bp_usid_usiduty">
+            <column name="mydfdl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-258">
+        <createIndex indexName="fk_usid_dfge" tableName="bp_usid_usiduty">
+            <column name="mydfge"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-259">
+        <createIndex indexName="fk_usid_gg" tableName="bp_usid_usiduty">
+            <column name="mygg"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-260">
+        <createIndex indexName="fk_usid_lcet" tableName="bp_usid_usiduty">
+            <column name="mylcet"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-261">
+        <createIndex indexName="fk_usid_lcp" tableName="bp_usid_usiduty">
+            <column name="mylcp"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-262">
+        <createIndex indexName="fk_usid_pt" tableName="bp_usid_usiduty">
+            <column name="mypt"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-263">
+        <createIndex indexName="fk_usid_term" tableName="bp_usid_usiduty">
+            <column name="myterm"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-264">
+        <createIndex indexName="fk_usid_usi" tableName="bp_usid_usiduty">
+            <column name="myusi"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-265">
+        <createIndex indexName="fk_usid_ust" tableName="bp_usid_usiduty">
+            <column name="myust"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-266">
+        <createIndex indexName="fk_usid_wso" tableName="bp_usid_usiduty">
+            <column name="mywso"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-267">
+        <createIndex indexName="fk_ust_myparent" tableName="bp_ust_usertype">
+            <column name="myparentust"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-268">
+        <createIndex indexName="fk_ust_myparentusl" tableName="bp_ust_usertype">
+            <column name="myusl"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-269">
+        <createIndex indexName="idx_bp_clag_classgroup_01" tableName="bp_clag_classgroup">
+            <column name="clagtype"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-270">
+        <createIndex indexName="myaccyear" tableName="bp_crpp_curriculumprogrampackage">
+            <column name="myaccyear"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-271">
+        <addForeignKeyConstraint baseColumnNames="mycurrscene" baseTableName="bp_abli_assignbookloitem" constraintName="fk_abli_cup_code" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cup_currperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-272">
+        <addForeignKeyConstraint baseColumnNames="myusi" baseTableName="bp_acc_account" constraintName="fk_acc_usi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usi_useritem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-273">
+        <addForeignKeyConstraint baseColumnNames="mydeal" baseTableName="bp_bl_bill" constraintName="fk_bill_mydeal" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dl_deal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-274">
+        <addForeignKeyConstraint baseColumnNames="myopp" baseTableName="bp_bl_bill" constraintName="fk_bill_opportunity" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_opp_opportunity" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-275">
+        <addForeignKeyConstraint baseColumnNames="mydeal" baseTableName="bp_cbod_combood" constraintName="fk_cbod_mydeal" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dl_deal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-276">
+        <addForeignKeyConstraint baseColumnNames="myparentchlt" baseTableName="bp_chli_checklistitem" constraintName="fk_chli_chlt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chlt_checklisttemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-277">
+        <addForeignKeyConstraint baseColumnNames="mychsi" baseTableName="bp_chli_checklistitem" constraintName="fk_chli_chsi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chsi_checkstepitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-278">
+        <addForeignKeyConstraint baseColumnNames="myparentchlt" baseTableName="bp_chlt_checklisttemp" constraintName="fk_chlt_parent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chlt_checklisttemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-279">
+        <addForeignKeyConstraint baseColumnNames="mychpt" baseTableName="bp_chpi_checkprocessitem" constraintName="fk_chpi_chpt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chpt_checkprocesstemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-280">
+        <addForeignKeyConstraint baseColumnNames="mycti1" baseTableName="bp_chpi_checkprocessitem" constraintName="fk_chpi_cti1" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cti_contentitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-281">
+        <addForeignKeyConstraint baseColumnNames="mycti2" baseTableName="bp_chpi_checkprocessitem" constraintName="fk_chpi_cti2" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cti_contentitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-282">
+        <addForeignKeyConstraint baseColumnNames="mycti3" baseTableName="bp_chpi_checkprocessitem" constraintName="fk_chpi_cti3" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cti_contentitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-283">
+        <addForeignKeyConstraint baseColumnNames="mycuievent" baseTableName="bp_chpi_checkprocessitem" constraintName="fk_chpi_cuievent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cuie_cuievent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-284">
+        <addForeignKeyConstraint baseColumnNames="supust" baseTableName="bp_chpt_checkprocesstemp" constraintName="fk_chpt_checkerust" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-285">
+        <addForeignKeyConstraint baseColumnNames="mylcet" baseTableName="bp_chpt_checkprocesstemp" constraintName="fk_chpt_mylcet" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcet_learningcomponenteventtype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-286">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_chpt_checkprocesstemp" constraintName="fk_chpt_mylcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-287">
+        <addForeignKeyConstraint baseColumnNames="myparentlcet" baseTableName="bp_chpt_checkprocesstemp" constraintName="fk_chpt_myparentlcet" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcet_learningcomponenteventtype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-288">
+        <addForeignKeyConstraint baseColumnNames="triggerusertype" baseTableName="bp_chpt_checkprocesstemp" constraintName="fk_chpt_triggerust" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-289">
+        <addForeignKeyConstraint baseColumnNames="mychrt" baseTableName="bp_chri_checkeritem" constraintName="fk_chri_chrt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chrt_checkertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-290">
+        <addForeignKeyConstraint baseColumnNames="mychpi" baseTableName="bp_chsi_checkstepitem" constraintName="fk_chsi_chpi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chpi_checkprocessitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-291">
+        <addForeignKeyConstraint baseColumnNames="mychst" baseTableName="bp_chsi_checkstepitem" constraintName="fk_chsi_chst" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chst_checksteptemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-292">
+        <addForeignKeyConstraint baseColumnNames="mychlt" baseTableName="bp_chst_checksteptemp" constraintName="fk_chst_chlt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chlt_checklisttemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-293">
+        <addForeignKeyConstraint baseColumnNames="mychrt" baseTableName="bp_chst_checksteptemp" constraintName="fk_chst_chrt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chrt_checkertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-294">
+        <addForeignKeyConstraint baseColumnNames="mychpt" baseTableName="bp_chst_checksteptemp" constraintName="fk_chst_mychpt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chpt_checkprocesstemp" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-295">
+        <addForeignKeyConstraint baseColumnNames="myopp" baseTableName="bp_cib_cusinfoblock" constraintName="fk_cib_myopp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_opp_opportunity" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-296">
+        <addForeignKeyConstraint baseColumnNames="mydfdl" baseTableName="bp_cib_pod" constraintName="fk_cib_pod_dfdl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfdl_difficultygrade" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-297">
+        <addForeignKeyConstraint baseColumnNames="mywso" baseTableName="bp_cib_pod" constraintName="fk_cib_pod_wso" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_wso_weeklyscheduleoption" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-298">
+        <addForeignKeyConstraint baseColumnNames="mydfdl" baseTableName="bp_clag_classgroup" constraintName="fk_clag_dfdl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfdl_difficultygrade" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-299">
+        <addForeignKeyConstraint baseColumnNames="mydfge" baseTableName="bp_clag_classgroup" constraintName="fk_clag_dfge" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfge_difficultyget" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-300">
+        <addForeignKeyConstraint baseColumnNames="mygg" baseTableName="bp_clag_classgroup" constraintName="fk_clag_gg" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_gg_gradegroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-301">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_clag_classgroup" constraintName="fk_clag_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-302">
+        <addForeignKeyConstraint baseColumnNames="myclag" baseTableName="bp_clag_ulc" constraintName="fk_clag_ulc_clag" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_clag_classgroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-303">
+        <addForeignKeyConstraint baseColumnNames="myulc" baseTableName="bp_clag_ulc" constraintName="fk_clag_ulc_ulc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-304">
+        <addForeignKeyConstraint baseColumnNames="mywso" baseTableName="bp_clag_classgroup" constraintName="fk_clag_wso" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_wso_weeklyscheduleoption" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-305">
+        <addForeignKeyConstraint baseColumnNames="bp_commit_point_id" baseTableName="bp_state" constraintName="fk_commitpoint_bpstate" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="bp_bpc_commitpoint" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-306">
+        <addForeignKeyConstraint baseColumnNames="myaccyear" baseTableName="bp_crpp_curriculumprogrampackage" constraintName="fk_crpp_myaccyear" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_accyear" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-307">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_crpp_curriculumprogrampackage" constraintName="fk_crpp_mypt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-308">
+        <addForeignKeyConstraint baseColumnNames="myterm" baseTableName="bp_crpp_curriculumprogrampackage" constraintName="fk_crpp_myterm" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_term" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-309">
+        <addForeignKeyConstraint baseColumnNames="mycti" baseTableName="bp_cui_content_user_ulc_instance" constraintName="fk_cui_mycti" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cti_contentitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-310">
+        <addForeignKeyConstraint baseColumnNames="myulc" baseTableName="bp_cui_content_user_ulc_instance" constraintName="fk_cui_myulc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-311">
+        <addForeignKeyConstraint baseColumnNames="mystep" baseTableName="bp_cuie_cuievent" constraintName="fk_cuie_bps" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_bps_step" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-312">
+        <addForeignKeyConstraint baseColumnNames="mycui" baseTableName="bp_cuie_cuievent" constraintName="fk_cuie_cui" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cui_content_user_ulc_instance" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-313">
+        <addForeignKeyConstraint baseColumnNames="mylcet_lceventtype" baseTableName="bp_cuie_cuievent" constraintName="fk_cuie_lcet" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcet_learningcomponenteventtype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-314">
+        <addForeignKeyConstraint baseColumnNames="myopp" baseTableName="bp_dl_deal" constraintName="fk_deal_myopportunity" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_opp_opportunity" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-315">
+        <addForeignKeyConstraint baseColumnNames="myusi" baseTableName="bp_dl_deal" constraintName="fk_deal_myusi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usi_useritem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-316">
+        <addForeignKeyConstraint baseColumnNames="myparent" baseTableName="bp_lcet_learningcomponenteventtype" constraintName="fk_lcet_parent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcet_learningcomponenteventtype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-317">
+        <addForeignKeyConstraint baseColumnNames="mylct" baseTableName="bp_lcp_lcperiod" constraintName="fk_lcp_lct_mylct" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lct_learningcomponenttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-318">
+        <addForeignKeyConstraint baseColumnNames="mylctparent" baseTableName="bp_lcp_lcperiod" constraintName="fk_lcp_lct_mylctparent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lct_learningcomponenttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-319">
+        <addForeignKeyConstraint baseColumnNames="myprd" baseTableName="bp_lcp_lcperiod" constraintName="fk_lcp_prd" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_prd_periodduration" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-320">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_lcp_lcperiod" constraintName="fk_lcp_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-321">
+        <addForeignKeyConstraint baseColumnNames="myjointlcp" baseTableName="bp_lcpj_lcpjoin" constraintName="fk_lcpj_myjointlcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-322">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_lcpj_lcpjoin" constraintName="fk_lcpj_mylcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-323">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_lcpm_lcpmerge" constraintName="fk_lcpm_mylcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-324">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_lct_learningcomponenttype" constraintName="fk_lct_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-325">
+        <addForeignKeyConstraint baseColumnNames="mybcam" baseTableName="bp_ld_lead" constraintName="fk_ld_mybcam" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_bcam_businesscampaign" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-326">
+        <addForeignKeyConstraint baseColumnNames="mychn" baseTableName="bp_ld_lead" constraintName="fk_ld_mychn" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chn_channel" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-327">
+        <addForeignKeyConstraint baseColumnNames="myldp" baseTableName="bp_ld_lead" constraintName="fk_ld_myldp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ldp_leadprovider" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-328">
+        <addForeignKeyConstraint baseColumnNames="mypcam" baseTableName="bp_ld_lead" constraintName="fk_ld_mypcam" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pcam_platformcampaign" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-329">
+        <addForeignKeyConstraint baseColumnNames="myqls" baseTableName="bp_ld_lead" constraintName="fk_ld_myqls" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_qls_qualificationstatus" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-330">
+        <addForeignKeyConstraint baseColumnNames="mycrpp" baseTableName="bp_crps_curriculumprogramsheet" constraintName="fk_myparentcrpp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_crpp_curriculumprogrampackage" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-331">
+        <addForeignKeyConstraint baseColumnNames="mylcl" baseTableName="bp_lct_learningcomponenttype" constraintName="fk_myparentlcl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcl_learningcomponentlevel" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-332">
+        <addForeignKeyConstraint baseColumnNames="mypc" baseTableName="bp_pc_productcombo_bp_pi_productitem" constraintName="fk_mypc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pc_productcombo" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-333">
+        <addForeignKeyConstraint baseColumnNames="mypi" baseTableName="bp_pc_productcombo_bp_pi_productitem" constraintName="fk_mypi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pi_productitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-334">
+        <addForeignKeyConstraint baseColumnNames="myld" baseTableName="bp_opp_opportunity" constraintName="fk_opp_myld" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ld_lead" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-335">
+        <addForeignKeyConstraint baseColumnNames="mypc" baseTableName="bp_opp_opportunity" constraintName="fk_opp_mypc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pc_productcombo" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-336">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_pi_productitem" constraintName="fk_pi_myproducttype" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-337">
+        <addForeignKeyConstraint baseColumnNames="mycbod" baseTableName="bp_pod_productofdeal" constraintName="fk_pod_cbod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cbod_combood" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-338">
+        <addForeignKeyConstraint baseColumnNames="mybps" baseTableName="bp_pod_clag" constraintName="fk_pod_clag_bps" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_bps_step" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-339">
+        <addForeignKeyConstraint baseColumnNames="myclag" baseTableName="bp_pod_clag" constraintName="fk_pod_clag_clag" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_clag_classgroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-340">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_pod_clag" constraintName="fk_pod_clag_pod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-341">
+        <addForeignKeyConstraint baseColumnNames="myust" baseTableName="bp_pod_clag" constraintName="fk_pod_clag_ust" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-342">
+        <addForeignKeyConstraint baseColumnNames="mydfdl" baseTableName="bp_pod_dfdl" constraintName="fk_pod_dfdl_dfdl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfdl_difficultygrade" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-343">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_pod_dfdl" constraintName="fk_pod_dfdl_pod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-344">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_pod_productofdeal" constraintName="fk_pod_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-345">
+        <addForeignKeyConstraint baseColumnNames="myst" baseTableName="bp_pod_productofdeal" constraintName="fk_pod_st" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usi_useritem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-346">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_pod_wso" constraintName="fk_pod_wso_pod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-347">
+        <addForeignKeyConstraint baseColumnNames="mywso" baseTableName="bp_pod_wso" constraintName="fk_pod_wso_wso" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_wso_weeklyscheduleoption" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-348">
+        <addForeignKeyConstraint baseColumnNames="mystep" baseTableName="bp_pode_podcevent" constraintName="fk_pode_bps" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_bps_step" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-349">
+        <addForeignKeyConstraint baseColumnNames="frombpaccount" baseTableName="bp_pode_podcevent" constraintName="fk_pode_fromacc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_acc_account" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-350">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_pode_podcevent" constraintName="fk_pode_pod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-351">
+        <addForeignKeyConstraint baseColumnNames="tobpaccount" baseTableName="bp_pode_podcevent" constraintName="fk_pode_toacc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_acc_account" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-352">
+        <addForeignKeyConstraint baseColumnNames="mycap" baseTableName="bp_podp_podperiod" constraintName="fk_podp_cap" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cap_calendarperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-353">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_podp_podperiod" constraintName="fk_podp_lcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-354">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_podp_podperiod" constraintName="fk_podp_pod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-355">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_podp_podperiod" constraintName="fk_podp_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-356">
+        <addForeignKeyConstraint baseColumnNames="myulcchild" baseTableName="bp_podp_podperiod" constraintName="fk_podp_ulcchild" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-357">
+        <addForeignKeyConstraint baseColumnNames="myulcparent" baseTableName="bp_podp_podperiod" constraintName="fk_podp_ulcparent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-358">
+        <addForeignKeyConstraint baseColumnNames="mypi" baseTableName="bp_ps_productslice" constraintName="fk_ps_mypi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pi_productitem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-359">
+        <addForeignKeyConstraint baseColumnNames="myparentpt" baseTableName="bp_pt_producttype" constraintName="fk_pt_mypt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-360">
+        <addForeignKeyConstraint baseColumnNames="mydfdl" baseTableName="bp_sagr_sagrate" constraintName="fk_sagr_mydfdl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfdl_difficultygrade" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-361">
+        <addForeignKeyConstraint baseColumnNames="mydfge" baseTableName="bp_sagr_sagrate" constraintName="fk_sagr_mydfge" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfge_difficultyget" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-362">
+        <addForeignKeyConstraint baseColumnNames="mygg" baseTableName="bp_sagr_sagrate" constraintName="fk_sagr_mygg" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_gg_gradegroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-363">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_sagr_sagrate" constraintName="fk_sagr_mypt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-364">
+        <addForeignKeyConstraint baseColumnNames="mypod" baseTableName="bp_slod_sliceod" constraintName="fk_slod_mypod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pod_productofdeal" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-365">
+        <addForeignKeyConstraint baseColumnNames="myparentcurrsession" baseTableName="bp_ssl_sessionslide" constraintName="fk_ssl_myparentcurrsession" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cup_currperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-366">
+        <addForeignKeyConstraint baseColumnNames="mygg" baseTableName="bp_st_gg" constraintName="fk_st_gg_gg" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_gg_gradegroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-367">
+        <addForeignKeyConstraint baseColumnNames="myst" baseTableName="bp_st_gg" constraintName="fk_st_gg_st" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usi_useritem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-368">
+        <addForeignKeyConstraint baseColumnNames="bp_event_id" baseTableName="bp_state" constraintName="fk_state_ bpstate" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="id" referencedTableName="bp_pode_podcevent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-369">
+        <addForeignKeyConstraint baseColumnNames="mycap" baseTableName="bp_ulc_uniquelearningcomponent" constraintName="fk_ulc_cap" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cap_calendarperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-370">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_ulc_uniquelearningcomponent" constraintName="fk_ulc_lcperiod" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-371">
+        <addForeignKeyConstraint baseColumnNames="myparentulc" baseTableName="bp_ulc_uniquelearningcomponent" constraintName="fk_ulc_myparent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-372">
+        <addForeignKeyConstraint baseColumnNames="myjointulc" baseTableName="bp_uclj_ulcjoin" constraintName="fk_ulcj_myjointulc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-373">
+        <addForeignKeyConstraint baseColumnNames="myulc" baseTableName="bp_uclj_ulcjoin" constraintName="fk_ulcj_myulc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ulc_uniquelearningcomponent" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-374">
+        <addForeignKeyConstraint baseColumnNames="myust" baseTableName="bp_usi_useritem" constraintName="fk_usi_myparentust" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-375">
+        <addForeignKeyConstraint baseColumnNames="myaccyear" baseTableName="bp_usid_usiduty" constraintName="fk_usid_acyear" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_accyear" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-376">
+        <addForeignKeyConstraint baseColumnNames="mybps" baseTableName="bp_usid_usiduty" constraintName="fk_usid_bps" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_bps_step" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-377">
+        <addForeignKeyConstraint baseColumnNames="mycap" baseTableName="bp_usid_usiduty" constraintName="fk_usid_cap" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cap_calendarperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-378">
+        <addForeignKeyConstraint baseColumnNames="mycashsta" baseTableName="bp_usid_usiduty" constraintName="fk_usid_cashsta" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_cashsta_calshiftstart" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-379">
+        <addForeignKeyConstraint baseColumnNames="mychrt" baseTableName="bp_usid_usiduty" constraintName="fk_usid_chrt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_chrt_checkertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-380">
+        <addForeignKeyConstraint baseColumnNames="mydfdl" baseTableName="bp_usid_usiduty" constraintName="fk_usid_dfdl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfdl_difficultygrade" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-381">
+        <addForeignKeyConstraint baseColumnNames="mydfge" baseTableName="bp_usid_usiduty" constraintName="fk_usid_dfge" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_dfge_difficultyget" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-382">
+        <addForeignKeyConstraint baseColumnNames="mygg" baseTableName="bp_usid_usiduty" constraintName="fk_usid_gg" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_gg_gradegroup" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-383">
+        <addForeignKeyConstraint baseColumnNames="mylcet" baseTableName="bp_usid_usiduty" constraintName="fk_usid_lcet" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcet_learningcomponenteventtype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-384">
+        <addForeignKeyConstraint baseColumnNames="mylcp" baseTableName="bp_usid_usiduty" constraintName="fk_usid_lcp" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_lcp_lcperiod" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-385">
+        <addForeignKeyConstraint baseColumnNames="mypt" baseTableName="bp_usid_usiduty" constraintName="fk_usid_pt" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_pt_producttype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-386">
+        <addForeignKeyConstraint baseColumnNames="myterm" baseTableName="bp_usid_usiduty" constraintName="fk_usid_term" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_term" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-387">
+        <addForeignKeyConstraint baseColumnNames="myusi" baseTableName="bp_usid_usiduty" constraintName="fk_usid_usi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usi_useritem" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-388">
+        <addForeignKeyConstraint baseColumnNames="myust" baseTableName="bp_usid_usiduty" constraintName="fk_usid_ust" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-389">
+        <addForeignKeyConstraint baseColumnNames="mywso" baseTableName="bp_usid_usiduty" constraintName="fk_usid_wso" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_wso_weeklyscheduleoption" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-390">
+        <addForeignKeyConstraint baseColumnNames="myparentust" baseTableName="bp_ust_usertype" constraintName="fk_ust_myparent" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_ust_usertype" validate="true"/>
+    </changeSet>
+    <changeSet author="w (generated)" id="1686647257742-391">
+        <addForeignKeyConstraint baseColumnNames="myusl" baseTableName="bp_ust_usertype" constraintName="fk_ust_myparentusl" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="bp_usl_userlevel" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,34 @@
+spring:
+  main.allow-bean-definition-overriding: true
+  application:
+    name: clevai-bp-log-service
+  cloud:
+    vault:
+      username: api-backend-services
+      password: 4a60c3164358782bd9d7ae745b8f7adf
+      enabled: false
+      host: vault.mikai.tech
+      port: 80
+      scheme: https
+      uri: https://vault.mikai.tech
+      connection-timeout: 5000
+      read-timeout: 15000
+      config:
+        order: -10
+    config:
+      uri: ${CONFIG_SERVER_URI:http://localhost:8866}
+      fail-fast: true
+      retry:
+        max-attempts: 20
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+gsheet:
+  importing:
+    M04-CRPP:
+      sheet:
+        name: M04-CRPS_040123
+    M03-CRPP:
+      sheet:
+        name:
+          M03-CRPS_040123
