@@ -1,0 +1,8 @@
+FROM openjdk:8-alpine
+RUN apk update && \
+    apk add maven
+WORKDIR /home/app
+ADD . .
+RUN export $(xargs<env.txt) && \
+    mv settings.xml /usr/share/java/maven-3/conf/settings.xml && \
+    mvn install -DskipTests=true -U

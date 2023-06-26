@@ -1,0 +1,14 @@
+FROM nexus-docker-registry.mikai.tech/clevai-clevai-bp-log-service:latest as build-stage
+WORKDIR /home/app
+RUN rm -rf *
+ADD . .
+RUN export $(xargs<env.txt) && \
+    mv settings.xml /usr/share/java/maven-3/conf/settings.xml && \
+    mvn clean install -DskipTests=true -U
+
+FROM openjdk:8-alpine
+COPY --from=build-stage /home/app/target/clevai-bp-log-service-*.jar /home/
+RUN rm /home/*-sources.jar
+WORKDIR /home
+EXPOSE 8087
+CMD java -jar -Xms${CLEVAI_BP_LOG_XMS}m -Xmx${CLEVAI_BP_LOG_XMX}m -Dspring.profiles.active=${ENV} clevai-bp-log-service-*.jar
